@@ -127,13 +127,27 @@ AtvRemoteApi.prototype.handlePost = function (appleTv, body, response) {
         args.push('--address');
         args.push(appleTv.ipAddress);
         args.push('--port');
-        args.push(appleTv.mrpPort);
+        args.push(appleTv.airplayPort);
         args.push('--protocol');
-        args.push('mrp');
+        args.push('airplay');
         args.push('--id');
         args.push('apple');
-        args.push('--mrp-credentials');
-        args.push(appleTv.mrpCredentials);
+        args.push('--airplay-credentials');
+        args.push(appleTv.airplayCredentials);
+
+        // Appends the Apple TV specific arguments
+        // args.push('cli');
+        // args.push('--manual');
+        // args.push('--address');
+        // args.push(appleTv.ipAddress);
+        // args.push('--port');
+        // args.push(appleTv.mrpPort);
+        // args.push('--protocol');
+        // args.push('mrp');
+        // args.push('--id');
+        // args.push('apple');
+        // args.push('--mrp-credentials');
+        // args.push(appleTv.mrpCredentials);
     
         // Spawns the process
         const childProcess = cp.spawn(command, args);
